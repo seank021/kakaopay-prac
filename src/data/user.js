@@ -1,0 +1,1 @@
+// id, username, pwd, point(잔여포인트)
