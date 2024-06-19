@@ -13,6 +13,18 @@ body {
   text-align: center;
 }
 
+.Header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background-color: #FEE500;
+  display: flex;
+  justify-content: end;
+  padding-right: 10%;
+  padding-top: 20px;
+}
+
 .Box {
   display: flex;
   background-color: black;
