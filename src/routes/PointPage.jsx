@@ -14,6 +14,7 @@ export default function PointPage() {
         if (window.confirm(item.name + " 포인트를" + " 충전하시겠습니까?")) {
             purchasePointAPI(item).then((res) => {
                 console.log(res);
+                localStorage.setItem("tid", res.data.tid);
                 window.location.href = res.data.next_redirect_pc_url;
             });
         }

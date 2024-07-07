@@ -28,3 +28,15 @@ export const purchasePointAPI = async (item) => {
         console.error(e);
     }
 }
+
+export const approvePointAPI = async (tid, pg_token) => {
+    try {
+        const res = await axios.post("https://port-0-paystudy-django-lxlodv5z82196b68.sel5.cloudtype.app/api/kakaopay/approve/", {
+            "pg_token": pg_token,
+            "tid": tid
+        });
+        return res;
+    } catch (e) {
+        console.error(e);
+    }
+}
