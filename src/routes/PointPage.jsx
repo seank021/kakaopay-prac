@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getPointListAPI } from "../api/point";
+import { getPointListAPI, purchasePointAPI } from "../api/point";
 
 export default function PointPage() {
     const [point, setPoint] = useState([]);
@@ -12,7 +12,10 @@ export default function PointPage() {
     const onClickPoint = (item) => {
         console.log(item);
         if (window.confirm(item.name + " 포인트를" + " 충전하시겠습니까?")) {
-            // api 연결
+            purchasePointAPI(item).then((res) => {
+                console.log(res);
+                window.location.href = res.data.next_redirect_pc_url;
+            });
         }
     }
 
