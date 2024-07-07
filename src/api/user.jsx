@@ -1,4 +1,4 @@
-import { getCookie } from "../utils/cookie";
+import { setCookie } from "../utils/cookie";
 import { instance } from "./axios";
 
 export const signUpApi = async (username, password) => {
@@ -7,6 +7,12 @@ export const signUpApi = async (username, password) => {
             "username": username,
             "password": password
         });
+        // const access_token = res.data.access_token;
+        // const refresh_token = res.data.refresh_token;
+
+        // setCookie("access_token", access_token);
+        // setCookie("refresh_token", refresh_token);
+
         if (res.status === 201 || res.status === 200) {
             alert("회원가입에 성공했습니다.");
             window.location.href = "/";
@@ -26,10 +32,15 @@ export const loginApi = async (username, password) => {
             "username": username,
             "password": password
         });
+        // const access_token = res.data.access_token;
+        // const refresh_token = res.data.refresh_token;
+
+        // setCookie("access_token", access_token);
+        // setCookie("refresh_token", refresh_token);
+
         if (res.status === 200 || res.status === 201) {
-            // alert("로그인에 성공했습니다.");
-            console.log(getCookie("access_token"));
-            // window.location.href = "/";
+            alert("로그인에 성공했습니다.");
+            window.location.href = "/";
             return res;
         }
         else {

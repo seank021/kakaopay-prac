@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCookie } from "../utils/cookie";
+import { getCookie, removeCookie } from "../utils/cookie";
 
 export default function Header() {
     const [isLogin, setIsLogin] = useState(false);
