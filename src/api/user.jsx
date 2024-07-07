@@ -1,3 +1,4 @@
+import { getCookie } from "../utils/cookie";
 import { instance } from "./axios";
 
 export const signUpApi = async (username, password) => {
@@ -26,8 +27,9 @@ export const loginApi = async (username, password) => {
             "password": password
         });
         if (res.status === 200 || res.status === 201) {
-            alert("로그인에 성공했습니다.");
-            window.location.href = "/";
+            // alert("로그인에 성공했습니다.");
+            console.log(getCookie("access_token"));
+            // window.location.href = "/";
             return res;
         }
         else {
