@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getPointAPI } from "../api/point";
+import { getPointListAPI } from "../api/point";
 
 export default function PointPage() {
     const [point, setPoint] = useState([]);
     useEffect(() => {
-        getPointAPI().then((res) => {
+        getPointListAPI().then((res) => {
             setPoint(res.data);
         });
     }, []);

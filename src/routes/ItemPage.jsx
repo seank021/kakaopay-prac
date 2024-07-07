@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getItemAPI } from "../api/item";
+import { getItemListAPI } from "../api/item";
 
 const priceName = {
     1500000: "150만원",
@@ -10,7 +10,7 @@ const priceName = {
 export default function ItemPage() {
     const [item, setItem] = useState([]);
     useEffect(() => {
-        getItemAPI().then((res) => {
+        getItemListAPI().then((res) => {
             setItem(res.data);
         });
     }, []);
