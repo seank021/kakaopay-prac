@@ -8,14 +8,18 @@ import PointPage from './routes/PointPage';
 import PointApprovalPage from './routes/PointApprovalPage';
 import PointCancelPage from './routes/PointCancelPage';
 import PointFailPage from './routes/PointFailPage';
+import LogInPage from './routes/LogInPage';
+import SignUpPage from './routes/SignUpPage';
 
 export default function App() {
   return (
     <div className="App" style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LogInPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
           <Route path="/item" element={<ItemPage />} />
           <Route path="/point" element={<PointPage />} />
           <Route path="/approval" element={<PointApprovalPage />} />

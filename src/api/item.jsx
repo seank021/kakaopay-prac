@@ -1,8 +1,8 @@
-import axios from "axios";
+import { instance } from "./axios";
 
 export const getItemListAPI = async () => {
     try {
-        const res = await axios.get("https://port-0-paystudy-django-lxlodv5z82196b68.sel5.cloudtype.app/item/");
+        const res = await instance.get("/item/");
         return res;
     } catch (e) {
         console.error(e);

@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { userprofile } from "../data/userprofile";
+import { getCookie } from "../utils/cookie";
 
 export default function Header() {
-    const [point, setPoint] = useState(0);
+    const [isLogin, setIsLogin] = useState(false);
+
     useEffect(() => {
-        setPoint(userprofile[0].point);
+        if (getCookie("access_token")) {
+            setIsLogin(true);
+        }
     }, []);
 
     return (
         <header className="Header">
-            <span style={{ fontSize: "20px", color: "black" }}>잔여 포인트: {point}</span>
+            {isLogin ? (
+                <div style={{ display: "flex", direction: "row", gap: "20px" }}>
+                    <span>로그인 중</span>
+                </div>
+            ) : (
+                <div style={{ display: "flex", direction: "row", gap: "20px" }}>
+                    <a href="/login">로그인</a>
+                    <a href="/signup">회원가입</a>
+                </div>
+            )}
         </header>
     );
 }

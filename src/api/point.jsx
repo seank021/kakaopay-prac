@@ -1,8 +1,8 @@
-import axios from "axios";
+import { instance } from "./axios";
 
 export const getPointListAPI = async () => {
     try {
-        const res = await axios.get("https://port-0-paystudy-django-lxlodv5z82196b68.sel5.cloudtype.app/point/");
+        const res = await instance.get("/point/");
         return res;
     } catch (e) {
         console.error(e);
@@ -11,7 +11,7 @@ export const getPointListAPI = async () => {
 
 export const purchasePointAPI = async (item) => {
     try {
-        const res = await axios.post("https://port-0-paystudy-django-lxlodv5z82196b68.sel5.cloudtype.app/api/kakaopay/ready/", {
+        const res = await instance.post("/api/kakaopay/ready/", {
             "cid": "TC0ONETIME",
             "partner_order_id": "POID1234",
             "partner_user_id": "PUID1234",
@@ -31,7 +31,7 @@ export const purchasePointAPI = async (item) => {
 
 export const approvePointAPI = async (tid, pg_token) => {
     try {
-        const res = await axios.post("https://port-0-paystudy-django-lxlodv5z82196b68.sel5.cloudtype.app/api/kakaopay/approve/", {
+        const res = await instance.post("/api/kakaopay/approve/", {
             "pg_token": pg_token,
             "tid": tid
         });

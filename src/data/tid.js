@@ -1,2 +1,0 @@
-// userId, itemId, tid
-
