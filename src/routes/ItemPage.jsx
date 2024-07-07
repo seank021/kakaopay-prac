@@ -1,5 +1,5 @@
-import React from "react";
-import { item } from "../data/item";
+import React, { useEffect, useState } from "react";
+import { getItemAPI } from "../api/item";
 
 const priceName = {
     1500000: "150만원",
@@ -8,6 +8,13 @@ const priceName = {
 }
 
 export default function ItemPage() {
+    const [item, setItem] = useState([]);
+    useEffect(() => {
+        getItemAPI().then((res) => {
+            setItem(res.data);
+        });
+    }, []);
+
     const onClickItem = (item) => {
         console.log(item);
         if (window.confirm(item.name + " 구매하시겠습니까?")) {
